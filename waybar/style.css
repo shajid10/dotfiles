@@ -1,0 +1,111 @@
+@import "themes/dracula.conf";
+
+* {
+    font-family: "Fredoka", "agave Nerd Font";
+    font-size: 14px;
+	font-weight: 600;
+}
+
+
+window#waybar { 
+    background-color: @bg1;
+    color: @fg1;    
+}
+
+
+.modules-left {
+	background-color: @bg1;
+	padding: 0px 0px 0px 0px;
+}
+
+
+.modules-right {
+	background-color: @bg1;
+	padding: 0px 5px 0px 0px;
+}
+
+
+#custom-scratch {
+	background-color: @bg2;
+	color: #b8b8b8;
+	padding: 0px 9px 0px 9px;
+}
+
+
+#workspaces {
+}
+
+
+#workspaces button {
+	padding: 0px 11px 0px 11px; 
+ 	min-width: 1px;
+	color: @purple;
+}
+
+#workspaces button.persistent {
+	padding: 0px 11px 0px 11px; 
+ 	min-width: 1px;
+	color: @fg1;
+}
+
+
+#workspaces button.focused { 
+	padding: 0px 11px 0px 11px; 
+	background-color: @purple;
+	color: @bg1;
+}
+
+
+#mode { 
+	 background-color: @purple;
+	 color: @fg1;
+     padding: 0px 5px 0px 5px;
+     border: 1px solid #2f343a;
+}
+
+
+#window {
+	 color: @purple;
+	 background-color: @bg1;
+     padding: 0px 10px 0px 10px;
+}
+
+
+window#waybar.empty #window {
+	background-color: transparent;
+	color: transparent;
+}
+
+
+window#waybar.empty {
+	background-color: @bg1;
+}
+
+
+#network, #temperature, #backlight, #pulseudio, #battery {
+    padding: 0px 6px 0px 6px;
+}
+    
+
+#clock {
+	margin: 0px 6px 0px 6px;
+}
+
+
+#tray{
+   padding: 0px 3px 0px 3px;
+   margin: 0px 2px 0px 2px;
+}
+
+
+#battery.critical {
+   color: @red;
+}
+
+
+#network.disconnected {
+    color: @red;
+}
+
+
+

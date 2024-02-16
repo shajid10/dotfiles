@@ -1,0 +1,117 @@
+{
+	"layer": "top",	
+	"position": "bottom",
+    "height": 22,
+
+
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-center": [],
+    "modules-right": ["memory", "temperature", "backlight", "pulseaudio", "battery", "clock", "tray"],
+
+
+	"sway/workspaces": {
+        "disable-scroll": false,
+        "disable-markup": true,
+        "format": "{index}",
+        "persistent_workspaces": {
+            "1": [], // Always show a workspace with name '3', on all outputs if it does not exists
+            "2": [], // Always show a workspace with name '4', on output 'eDP-1' if it does not exists
+            "3": [], // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
+            "4": [], // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
+            "5": [], // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
+        }
+},
+
+
+	"sway/window": {
+    	"format": "{}",
+    	"max-length": 150
+},
+
+
+	"custom/scratch": {
+   		"interval": 3,
+   		"exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 0)'",
+   		"format": "^{}", 
+   		"on-click": "swaymsg 'scratchpad show'",
+   		"on-click-right": "swaymsg 'move scratchpad'"
+},
+
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 4
+},
+
+
+    "clock": {
+        "format": "  {: %I:%M %p}",
+        "interval": 30
+},
+
+    
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+              "full": 99,
+              "good": 98,
+              "normal": 98,
+              "warning": 20,
+              "critical": 20
+},
+
+        "format": "{icon}   {capacity}%",
+        "format-good": "{icon}   {capacity}%", 
+        "format-full": "    {capacity}%",
+        "format-icons": ["  ", "  ", "  ", "  ", "  "],
+        "interval": 30
+},
+
+"memory": {
+    "interval": 30,
+    "format": "{used}Gb 󰍛 ",
+    "max-length": 10
+},
+
+"network": {
+    "interval": 5,
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ifname}",
+    "format-disconnected": "No connection",
+    "format-alt": " {ipaddr}/{cidr}",
+    "tooltip": false
+},
+
+
+    "temperature": {
+	   	"thermal-zone": 0,
+		"format": "{icon} {temperatureC}°C",
+		"format-icons":[""],
+		"interval": 30
+},
+
+
+	"backlight": {
+    	"device": "intel_backlight",
+    	"format": "{icon}  {percent}%  ",
+    	"format-icons": ["  ","  ","  ","  "],
+    	"interval": 60
+},
+
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%  ",
+        "format-bluetooth": "    {volume}%  ",
+        "format-muted":"婢   Mute  ",
+        "interval": 60,
+
+        "format-icons": {
+        "default": ["  "]
+},
+            
+       "on-click": "blueman-manager"    
+
+
+}
+
+}
